@@ -1,0 +1,15 @@
+
+RewriteEngine On
+RewriteBase /
+
+# Route requests for non-existent files and directories to index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]
+
+# Allow access to PHP files
+<FilesMatch "\.php$">
+    Require all granted
+</FilesMatch>
+
+
